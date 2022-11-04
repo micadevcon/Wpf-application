@@ -35,3 +35,41 @@ C:\Users\micad\source\repos\Магазин техники\obj\Debug\Pages\PageLi
 C:\Users\micad\source\repos\Магазин техники\obj\Debug\Магазин техники.csproj.AssemblyReference.cache
 C:\Users\micad\source\repos\Магазин техники\obj\Debug\Pages\PageReadInformation.g.cs
 C:\Users\micad\source\repos\Магазин техники\obj\Debug\Pages\PageReadInformation.baml
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\bin\Debug\ResourcesProject\чайник.png
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\bin\Debug\Магазин техники.exe.config
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\bin\Debug\Магазин техники.exe
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\bin\Debug\Магазин техники.pdb
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\bin\Debug\EntityFramework.dll
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\bin\Debug\EntityFramework.xml
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Магазин техники.csproj.AssemblyReference.cache
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\DictionaryStyle.baml
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\MainWindow.g.cs
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Pages\PageAddInfornationAboutTecnica.g.cs
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Pages\PageAddTecnica.g.cs
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Pages\PageForDataGrid.g.cs
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Pages\PageForListBox.g.cs
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Pages\PageListViewTecnica.g.cs
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Pages\PageReadInformation.g.cs
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\App.g.cs
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Магазин техники_Content.g.cs
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Магазин техники_MarkupCompile.cache
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Магазин техники_MarkupCompile.lref
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\App.baml
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\MainWindow.baml
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Pages\PageAddInfornationAboutTecnica.baml
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Pages\PageAddTecnica.baml
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Pages\PageForDataGrid.baml
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Pages\PageForListBox.baml
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Pages\PageListViewTecnica.baml
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Pages\PageReadInformation.baml
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Магазин техники.g.resources
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Магазин_техники.Properties.Resources.resources
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Магазин техники.csproj.GenerateResource.cache
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Магазин техники.csproj.CoreCompileInputs.cache
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Магазин техники.csproj.CopyComplete
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Магазин техники.exe
+C:\Users\micad\Downloads\учеба\3 курс\Wpf-application\Магазин техники\obj\Debug\Магазин техники.pdb

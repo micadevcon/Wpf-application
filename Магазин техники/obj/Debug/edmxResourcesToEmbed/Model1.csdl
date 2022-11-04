@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="T_Вид_техники">
+    <Key>
+      <PropertyRef Name="тип_техники" />
+    </Key>
+    <Property Name="тип_техники" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="T_Техника" Relationship="Self.FK_Техника_Вид_техники" FromRole="T_Вид_техники" ToRole="T_Техника" />
+  </EntityType>
+  <EntityType Name="T_Действия_на_складе">
+    <Key>
+      <PropertyRef Name="id_операции" />
+    </Key>
+    <Property Name="id_операции" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="техника" Type="Int32" Nullable="false" />
+    <Property Name="количество" Type="Int32" Nullable="false" />
+    <Property Name="дата" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Прибытие_" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="T_Техника" Relationship="Self.FK_Действия_на_складе_Техника" FromRole="T_Действия_на_складе" ToRole="T_Техника" />
+  </EntityType>
+  <EntityType Name="T_Договор">
+    <Key>
+      <PropertyRef Name="номер" />
+    </Key>
+    <Property Name="номер" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Фамилия" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Имя" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Отчество" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Год_рождения" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Товары_договора" Relationship="Self.FK_Товары_договора_T_Договор" FromRole="T_Договор" ToRole="Товары_договора" />
+  </EntityType>
+  <EntityType Name="T_Производитель">
+    <Key>
+      <PropertyRef Name="Производитель" />
+    </Key>
+    <Property Name="Производитель" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="T_Техника" Relationship="Self.FK_Техника_Производитель" FromRole="T_Производитель" ToRole="T_Техника" />
+  </EntityType>
+  <EntityType Name="T_Техника">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="тип_техники" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="модель" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="производитель" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="фото" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="цена" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="T_Вид_техники" Relationship="Self.FK_Техника_Вид_техники" FromRole="T_Техника" ToRole="T_Вид_техники" />
+    <NavigationProperty Name="T_Действия_на_складе" Relationship="Self.FK_Действия_на_складе_Техника" FromRole="T_Техника" ToRole="T_Действия_на_складе" />
+    <NavigationProperty Name="T_Производитель" Relationship="Self.FK_Техника_Производитель" FromRole="T_Техника" ToRole="T_Производитель" />
+    <NavigationProperty Name="Товары_договора" Relationship="Self.FK_Товары_договора_T_Техника1" FromRole="T_Техника" ToRole="Товары_договора" />
+  </EntityType>
+  <EntityType Name="Товары_договора">
+    <Key>
+      <PropertyRef Name="номер_договора" />
+      <PropertyRef Name="номер_товара" />
+    </Key>
+    <Property Name="номер_договора" Type="Int32" Nullable="false" />
+    <Property Name="номер_товара" Type="Int32" Nullable="false" />
+    <Property Name="количество_товара" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="T_Договор" Relationship="Self.FK_Товары_договора_T_Договор" FromRole="Товары_договора" ToRole="T_Договор" />
+    <NavigationProperty Name="T_Техника" Relationship="Self.FK_Товары_договора_T_Техника1" FromRole="Товары_договора" ToRole="T_Техника" />
+  </EntityType>
+  <EntityType Name="View_1">
+    <Key>
+      <PropertyRef Name="техника" />
+      <PropertyRef Name="количество" />
+      <PropertyRef Name="Прибытие_" />
+    </Key>
+    <Property Name="техника" Type="Int32" Nullable="false" />
+    <Property Name="количество" Type="Int32" Nullable="false" />
+    <Property Name="Прибытие_" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Техника_Вид_техники">
+    <End Role="T_Вид_техники" Type="Self.T_Вид_техники" Multiplicity="1" />
+    <End Role="T_Техника" Type="Self.T_Техника" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Вид_техники">
+        <PropertyRef Name="тип_техники" />
+      </Principal>
+      <Dependent Role="T_Техника">
+        <PropertyRef Name="тип_техники" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Действия_на_складе_Техника">
+    <End Role="T_Техника" Type="Self.T_Техника" Multiplicity="1" />
+    <End Role="T_Действия_на_складе" Type="Self.T_Действия_на_складе" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Техника">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="T_Действия_на_складе">
+        <PropertyRef Name="техника" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Товары_договора_T_Договор">
+    <End Role="T_Договор" Type="Self.T_Договор" Multiplicity="1" />
+    <End Role="Товары_договора" Type="Self.Товары_договора" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Договор">
+        <PropertyRef Name="номер" />
+      </Principal>
+      <Dependent Role="Товары_договора">
+        <PropertyRef Name="номер_договора" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Техника_Производитель">
+    <End Role="T_Производитель" Type="Self.T_Производитель" Multiplicity="1" />
+    <End Role="T_Техника" Type="Self.T_Техника" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Производитель">
+        <PropertyRef Name="Производитель" />
+      </Principal>
+      <Dependent Role="T_Техника">
+        <PropertyRef Name="производитель" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Товары_договора_T_Техника1">
+    <End Role="T_Техника" Type="Self.T_Техника" Multiplicity="1" />
+    <End Role="Товары_договора" Type="Self.Товары_договора" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Техника">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Товары_договора">
+        <PropertyRef Name="номер_товара" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Магазин_техникиEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="T_Вид_техники" EntityType="Self.T_Вид_техники" />
+    <EntitySet Name="T_Действия_на_складе" EntityType="Self.T_Действия_на_складе" />
+    <EntitySet Name="T_Договор" EntityType="Self.T_Договор" />
+    <EntitySet Name="T_Производитель" EntityType="Self.T_Производитель" />
+    <EntitySet Name="T_Техника" EntityType="Self.T_Техника" />
+    <EntitySet Name="Товары_договора" EntityType="Self.Товары_договора" />
+    <EntitySet Name="View_1" EntityType="Self.View_1" />
+    <AssociationSet Name="FK_Техника_Вид_техники" Association="Self.FK_Техника_Вид_техники">
+      <End Role="T_Вид_техники" EntitySet="T_Вид_техники" />
+      <End Role="T_Техника" EntitySet="T_Техника" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Действия_на_складе_Техника" Association="Self.FK_Действия_на_складе_Техника">
+      <End Role="T_Техника" EntitySet="T_Техника" />
+      <End Role="T_Действия_на_складе" EntitySet="T_Действия_на_складе" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Товары_договора_T_Договор" Association="Self.FK_Товары_договора_T_Договор">
+      <End Role="T_Договор" EntitySet="T_Договор" />
+      <End Role="Товары_договора" EntitySet="Товары_договора" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Техника_Производитель" Association="Self.FK_Техника_Производитель">
+      <End Role="T_Производитель" EntitySet="T_Производитель" />
+      <End Role="T_Техника" EntitySet="T_Техника" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Товары_договора_T_Техника1" Association="Self.FK_Товары_договора_T_Техника1">
+      <End Role="T_Техника" EntitySet="T_Техника" />
+      <End Role="Товары_договора" EntitySet="Товары_договора" />
+    </AssociationSet>
+    <FunctionImport Name="count" ReturnType="Collection(Model.count_Result)" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Model.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Model.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="count_Result">
+    <Property Type="String" Name="тип_техники" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="модель_товара" Nullable="false" MaxLength="10" />
+    <Property Type="Int32" Name="всего_товара" Nullable="true" />
+  </ComplexType>
+</Schema>

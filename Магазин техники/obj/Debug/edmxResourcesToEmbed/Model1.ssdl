@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="T_Вид техники">
+    <Key>
+      <PropertyRef Name="тип техники" />
+    </Key>
+    <Property Name="тип техники" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Действия на складе">
+    <Key>
+      <PropertyRef Name="id операции" />
+    </Key>
+    <Property Name="id операции" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="техника" Type="int" Nullable="false" />
+    <Property Name="количество" Type="int" Nullable="false" />
+    <Property Name="дата" Type="date" Nullable="false" />
+    <Property Name="Прибытие?" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Договор">
+    <Key>
+      <PropertyRef Name="номер" />
+    </Key>
+    <Property Name="номер" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Фамилия" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Имя" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Отчество" Type="nchar" MaxLength="10" />
+    <Property Name="Год рождения" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Производитель">
+    <Key>
+      <PropertyRef Name="Производитель" />
+    </Key>
+    <Property Name="Производитель" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Техника">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="тип техники" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="модель" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="производитель" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="фото" Type="nvarchar" MaxLength="50" />
+    <Property Name="цена" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Товары договора">
+    <Key>
+      <PropertyRef Name="номер договора" />
+      <PropertyRef Name="номер товара" />
+    </Key>
+    <Property Name="номер договора" Type="int" Nullable="false" />
+    <Property Name="номер товара" Type="int" Nullable="false" />
+    <Property Name="количество товара" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Магазин техники.dbo.View_1" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="View_1">
+    <Key>
+      <PropertyRef Name="техника" />
+      <PropertyRef Name="количество" />
+      <PropertyRef Name="Прибытие?" />
+    </Key>
+    <Property Name="техника" Type="int" Nullable="false" />
+    <Property Name="количество" Type="int" Nullable="false" />
+    <Property Name="Прибытие?" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Действия на складе_Техника">
+    <End Role="T_Техника" Type="Self.T_Техника" Multiplicity="1" />
+    <End Role="T_Действия на складе" Type="Self.T_Действия на складе" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Техника">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="T_Действия на складе">
+        <PropertyRef Name="техника" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Техника_Вид техники">
+    <End Role="T_Вид техники" Type="Self.T_Вид техники" Multiplicity="1" />
+    <End Role="T_Техника" Type="Self.T_Техника" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Вид техники">
+        <PropertyRef Name="тип техники" />
+      </Principal>
+      <Dependent Role="T_Техника">
+        <PropertyRef Name="тип техники" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Техника_Производитель">
+    <End Role="T_Производитель" Type="Self.T_Производитель" Multiplicity="1" />
+    <End Role="T_Техника" Type="Self.T_Техника" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Производитель">
+        <PropertyRef Name="Производитель" />
+      </Principal>
+      <Dependent Role="T_Техника">
+        <PropertyRef Name="производитель" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Товары договора_T_Договор">
+    <End Role="T_Договор" Type="Self.T_Договор" Multiplicity="1" />
+    <End Role="Товары договора" Type="Self.Товары договора" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Договор">
+        <PropertyRef Name="номер" />
+      </Principal>
+      <Dependent Role="Товары договора">
+        <PropertyRef Name="номер договора" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Товары договора_T_Техника1">
+    <End Role="T_Техника" Type="Self.T_Техника" Multiplicity="1" />
+    <End Role="Товары договора" Type="Self.Товары договора" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_Техника">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Товары договора">
+        <PropertyRef Name="номер товара" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="count" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="type" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Хранилище ModelContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Вид техники" EntityType="Self.T_Вид техники" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Действия на складе" EntityType="Self.T_Действия на складе" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Договор" EntityType="Self.T_Договор" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Производитель" EntityType="Self.T_Производитель" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Техника" EntityType="Self.T_Техника" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Товары договора" EntityType="Self.Товары договора" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="View_1" EntityType="Self.View_1" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [View_1].[техника] AS [техника], 
+    [View_1].[количество] AS [количество], 
+    [View_1].[Прибытие?] AS [Прибытие?]
+    FROM [dbo].[View_1] AS [View_1]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Действия на складе_Техника" Association="Self.FK_Действия на складе_Техника">
+      <End Role="T_Техника" EntitySet="T_Техника" />
+      <End Role="T_Действия на складе" EntitySet="T_Действия на складе" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Техника_Вид техники" Association="Self.FK_Техника_Вид техники">
+      <End Role="T_Вид техники" EntitySet="T_Вид техники" />
+      <End Role="T_Техника" EntitySet="T_Техника" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Техника_Производитель" Association="Self.FK_Техника_Производитель">
+      <End Role="T_Производитель" EntitySet="T_Производитель" />
+      <End Role="T_Техника" EntitySet="T_Техника" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Товары договора_T_Договор" Association="Self.FK_Товары договора_T_Договор">
+      <End Role="T_Договор" EntitySet="T_Договор" />
+      <End Role="Товары договора" EntitySet="Товары договора" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Товары договора_T_Техника1" Association="Self.FK_Товары договора_T_Техника1">
+      <End Role="T_Техника" EntitySet="T_Техника" />
+      <End Role="Товары договора" EntitySet="Товары договора" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

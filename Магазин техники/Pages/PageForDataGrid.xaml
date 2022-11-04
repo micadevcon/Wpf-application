@@ -1,0 +1,49 @@
+﻿<Page x:Class="Магазин_техники.Pages.PageForDataGrid"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Магазин_техники.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageForDataGrid">
+
+    <Grid>
+        <DataGrid 
+            Name="dgTechnica" 
+            HorizontalAlignment="Stretch">
+            <DataGrid.Columns >
+                <DataGridTextColumn  
+                    Header="Производитель" 
+                    Width="*" 
+                    MinWidth="130"
+                    Binding="{Binding производитель}"/>
+                <DataGridTextColumn 
+                    Header="Тип техники" 
+                    Width="*" 
+                    MinWidth="130"
+                    Binding="{Binding тип_техники}"/>
+                <DataGridTextColumn 
+                    Header="Цена" 
+                    Width="*" 
+                    MinWidth="50"
+                    Binding="{Binding цена}"/>
+                <DataGridTextColumn 
+                    Header="Модель" 
+                    Width="*" 
+                    MinWidth="70"
+                    Binding="{Binding модель}"/>
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button 
+                            Content="Редактировать" 
+                            Name="btnEditVeggie" 
+                            Click="btnEditVeggie_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

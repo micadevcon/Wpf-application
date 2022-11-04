@@ -1,0 +1,38 @@
+C:\Users\micad\source\repos\Магазин техники\bin\Release\Магазин техники.exe.config
+C:\Users\micad\source\repos\Магазин техники\bin\Release\Магазин техники.exe
+C:\Users\micad\source\repos\Магазин техники\bin\Release\Магазин техники.pdb
+C:\Users\micad\source\repos\Магазин техники\bin\Release\EntityFramework.dll
+C:\Users\micad\source\repos\Магазин техники\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\micad\source\repos\Магазин техники\bin\Release\EntityFramework.xml
+C:\Users\micad\source\repos\Магазин техники\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\micad\source\repos\Магазин техники\bin\Release\ru\EntityFramework.resources.dll
+C:\Users\micad\source\repos\Магазин техники\bin\Release\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Магазин техники.csproj.AssemblyReference.cache
+C:\Users\micad\source\repos\Магазин техники\obj\Release\DictionaryStyle.baml
+C:\Users\micad\source\repos\Магазин техники\obj\Release\MainWindow.g.cs
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Pages\PageAddInfornationAboutTecnica.g.cs
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Pages\PageAddTecnica.g.cs
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Pages\PageForDataGrid.g.cs
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Pages\PageForListBox.g.cs
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Pages\PageListViewTecnica.g.cs
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Pages\PageReadInformation.g.cs
+C:\Users\micad\source\repos\Магазин техники\obj\Release\App.g.cs
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Магазин техники_Content.g.cs
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Магазин техники_MarkupCompile.cache
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Магазин техники_MarkupCompile.lref
+C:\Users\micad\source\repos\Магазин техники\obj\Release\App.baml
+C:\Users\micad\source\repos\Магазин техники\obj\Release\MainWindow.baml
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Pages\PageAddInfornationAboutTecnica.baml
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Pages\PageAddTecnica.baml
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Pages\PageForDataGrid.baml
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Pages\PageForListBox.baml
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Pages\PageListViewTecnica.baml
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Pages\PageReadInformation.baml
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Магазин техники.g.resources
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Магазин_техники.Properties.Resources.resources
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Магазин техники.csproj.GenerateResource.cache
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Магазин техники.csproj.CoreCompileInputs.cache
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Магазин техники.csproj.CopyComplete
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Магазин техники.exe
+C:\Users\micad\source\repos\Магазин техники\obj\Release\Магазин техники.pdb
+C:\Users\micad\source\repos\Магазин техники\bin\Release\ResourcesProject\чайник.png

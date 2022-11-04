@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Магазин_техникиEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Вид_техники">
+      <EntityTypeMapping TypeName="Model.T_Вид_техники">
+        <MappingFragment StoreEntitySet="T_Вид техники">
+          <ScalarProperty Name="тип_техники" ColumnName="тип техники" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Действия_на_складе">
+      <EntityTypeMapping TypeName="Model.T_Действия_на_складе">
+        <MappingFragment StoreEntitySet="T_Действия на складе">
+          <ScalarProperty Name="id_операции" ColumnName="id операции" />
+          <ScalarProperty Name="техника" ColumnName="техника" />
+          <ScalarProperty Name="количество" ColumnName="количество" />
+          <ScalarProperty Name="дата" ColumnName="дата" />
+          <ScalarProperty Name="Прибытие_" ColumnName="Прибытие?" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Договор">
+      <EntityTypeMapping TypeName="Model.T_Договор">
+        <MappingFragment StoreEntitySet="T_Договор">
+          <ScalarProperty Name="номер" ColumnName="номер" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+          <ScalarProperty Name="Год_рождения" ColumnName="Год рождения" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Производитель">
+      <EntityTypeMapping TypeName="Model.T_Производитель">
+        <MappingFragment StoreEntitySet="T_Производитель">
+          <ScalarProperty Name="Производитель" ColumnName="Производитель" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Техника">
+      <EntityTypeMapping TypeName="Model.T_Техника">
+        <MappingFragment StoreEntitySet="T_Техника">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="тип_техники" ColumnName="тип техники" />
+          <ScalarProperty Name="модель" ColumnName="модель" />
+          <ScalarProperty Name="производитель" ColumnName="производитель" />
+          <ScalarProperty Name="фото" ColumnName="фото" />
+          <ScalarProperty Name="цена" ColumnName="цена" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Товары_договора">
+      <EntityTypeMapping TypeName="Model.Товары_договора">
+        <MappingFragment StoreEntitySet="Товары договора">
+          <ScalarProperty Name="номер_договора" ColumnName="номер договора" />
+          <ScalarProperty Name="номер_товара" ColumnName="номер товара" />
+          <ScalarProperty Name="количество_товара" ColumnName="количество товара" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_1">
+      <EntityTypeMapping TypeName="Model.View_1">
+        <MappingFragment StoreEntitySet="View_1">
+          <ScalarProperty Name="техника" ColumnName="техника" />
+          <ScalarProperty Name="количество" ColumnName="количество" />
+          <ScalarProperty Name="Прибытие_" ColumnName="Прибытие?" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="count" FunctionName="Хранилище Model.count">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.count_Result">
+          <ScalarProperty Name="тип_техники" ColumnName="тип_техники" />
+          <ScalarProperty Name="модель_товара" ColumnName="модель_товара" />
+          <ScalarProperty Name="всего_товара" ColumnName="всего_товара" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище Model.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище Model.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище Model.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище Model.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище Model.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище Model.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище Model.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>
